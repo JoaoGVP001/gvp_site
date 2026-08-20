@@ -15,7 +15,7 @@ export default function Home() {
           <h1 id="hero-title">Eu transformo <em>curiosidade</em> em código.</h1>
           <p className="hero-text">Estudante de Ciência da Computação explorando software, dados e novas ideias — um projeto de cada vez.</p>
           <div className="hero-actions">
-            <Link className="button button-primary" href="/projetos">Explorar projetos <span aria-hidden="true">↗</span></Link>
+            <Link className="button button-primary" href="/projetos/bookreadnet">Explorar o BookReadNet <span aria-hidden="true">↗</span></Link>
             <a className="button button-ghost" href="https://github.com/JoaoGVP001" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -32,10 +32,10 @@ export default function Home() {
 
       <section className="home-section shell" aria-labelledby="projects-title">
         <div className="section-heading">
-          <div><p className="section-number">01 / PROJETOS</p><h2 id="projects-title">Algumas coisas que estou construindo.</h2></div>
-          <Link className="text-link" href="/projetos">Ver todos <span aria-hidden="true">→</span></Link>
+          <div><p className="section-number">01 / PROJETO</p><h2 id="projects-title">O projeto em que estou trabalhando.</h2></div>
+          <Link className="text-link" href="/projetos/bookreadnet">Ver projeto <span aria-hidden="true">→</span></Link>
         </div>
-        <div className="project-grid">{projects.slice(0, 2).map((project) => <ProjectCard project={project} key={project.slug} />)}</div>
+        <div className="project-grid single-project">{projects.map((project) => <ProjectCard project={project} key={project.slug} />)}</div>
       </section>
 
       <section className="home-section notes-section shell" aria-labelledby="notes-title">

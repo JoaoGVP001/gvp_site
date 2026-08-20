@@ -90,6 +90,7 @@ h1 em { color: var(--accent); font-weight: inherit; }
 .text-link { flex: none; color: var(--muted); padding-bottom: 4px; border-bottom: 1px solid var(--line); font-size: .84rem; font-weight: 750; }
 .text-link:hover { color: var(--accent); border-color: var(--accent); }
 .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.project-grid.single-project { grid-template-columns: 1fr; }
 .project-card { background: var(--paper-raised); border: 1px solid var(--line); padding: 30px; min-height: 290px; display: flex; flex-direction: column; transition: transform 180ms ease, border-color 180ms ease; }
 .project-card:hover { transform: translateY(-5px); border-color: var(--accent); }
 .project-topline { display: flex; justify-content: space-between; color: var(--muted); font-size: .75rem; }
