@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Note } from "../../lib/content";
 
@@ -38,13 +37,13 @@ export function NotesExplorer({ notes }: { notes: NoteSummary[] }) {
       <p className="result-count">{filtered.length} {filtered.length === 1 ? "anotação encontrada" : "anotações encontradas"}</p>
       <div className="notes-grid">
         {filtered.map((note) => (
-          <Link className="note-card" href={`/notas/${note.slug}`} key={note.slug}>
+          <a className="note-card" href={`/notas/${note.slug}`} key={note.slug}>
             <div><span>{note.category}</span><time>{note.readingTime}</time></div>
             <h2>{note.title}</h2>
             <p>{note.excerpt}</p>
             <ul>{note.tags.map((tag) => <li key={tag}>#{tag}</li>)}</ul>
             <strong>Ler anotação <span aria-hidden="true">→</span></strong>
-          </Link>
+          </a>
         ))}
       </div>
       {filtered.length === 0 && <p className="empty-state">Nada por aqui ainda. Tente outro termo ou categoria.</p>}

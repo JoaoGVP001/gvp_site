@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- Navegação completa evita depender do roteador no cliente. */
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProject, projects } from "../../../lib/content";
 
@@ -25,7 +25,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   if (!project) notFound();
   return (
     <main className="detail-page shell">
-      <Link className="back-link" href="/projetos">← Voltar para projetos</Link>
+      <a className="back-link" href="/projetos">← Voltar para projetos</a>
       <header className="detail-hero">
         <div><p className="eyebrow"><span /> {project.category}</p><h1>{project.name}</h1><p>{project.description}</p></div>
         <span className="project-index">{project.index}</span>
@@ -44,7 +44,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         <p className="section-number">03 / DESTAQUES</p>
         <ol>{project.highlights.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol>
       </section>
-      <nav className="detail-next" aria-label="Navegação entre projetos"><Link href="/projetos">Conhecer os outros projetos <span>→</span></Link></nav>
+      <nav className="detail-next" aria-label="Navegação entre projetos"><a href="/projetos">Conhecer os outros projetos <span>→</span></a></nav>
     </main>
   );
 }

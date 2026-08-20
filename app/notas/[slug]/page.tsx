@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- Navegação completa evita depender do roteador no cliente. */
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatDate, getNote, notes } from "../../../lib/content";
 
@@ -25,7 +25,7 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
   if (!note) notFound();
   return (
     <main className="article-page shell">
-      <Link className="back-link" href="/notas">← Voltar para as notas</Link>
+      <a className="back-link" href="/notas">← Voltar para as notas</a>
       <header className="article-header">
         <p className="eyebrow"><span /> {note.category}</p>
         <h1>{note.title}</h1>
@@ -48,7 +48,7 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
       </div>
       <footer className="article-footer">
         <ul>{note.tags.map((tag) => <li key={tag}>#{tag}</li>)}</ul>
-        <Link href="/notas">Continuar explorando o caderno →</Link>
+        <a href="/notas">Continuar explorando o caderno →</a>
       </footer>
     </main>
   );

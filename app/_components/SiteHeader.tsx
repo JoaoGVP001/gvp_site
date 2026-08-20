@@ -1,4 +1,4 @@
-import Link from "next/link";
+/* eslint-disable @next/next/no-html-link-for-pages -- Navegação completa evita depender do roteador no cliente. */
 import { ThemeToggle } from "./ThemeToggle";
 
 const navigation = [
@@ -14,16 +14,16 @@ export function SiteHeader() {
   return (
     <header className="header-wrap">
       <div className="site-header shell">
-        <Link className="wordmark" href="/" aria-label="Página inicial de João Guilherme">
+        <a className="wordmark" href="/" aria-label="Página inicial de João Guilherme">
           JG<span>.</span>
-        </Link>
+        </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
-          {navigation.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
+          {navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
         </nav>
         <ThemeToggle />
       </div>
       <nav className="mobile-nav shell" aria-label="Navegação principal para celular">
-        {navigation.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
+        {navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
       </nav>
     </header>
   );
