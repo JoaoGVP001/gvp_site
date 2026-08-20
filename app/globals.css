@@ -141,7 +141,7 @@ h1 em { color: var(--accent); font-weight: inherit; }
   font-size: .78rem;
 }
 .site-footer > div:first-child p { margin: 12px 0 0; }
-.footer-links { display: flex; gap: 24px; font-weight: 700; color: var(--ink); }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px 24px; font-weight: 700; color: var(--ink); }
 .footer-links a:hover { color: var(--accent); }
 .copyright { grid-column: 1 / -1; margin: -38px 0 0; }
 
@@ -266,6 +266,13 @@ h1 em { color: var(--accent); font-weight: inherit; }
 .contact-card h2 { margin: 26px 0 10px; font: 500 3rem Georgia, serif; }
 .contact-card p { margin: 0; max-width: 520px; color: #a8aaa1; line-height: 1.6; }
 .contact-card .button-primary { flex: none; background: var(--accent); border-color: var(--accent); color: #fff; }
+.contact-socials { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 32px; }
+.social-link-card { position: relative; min-height: 230px; padding: 30px; border: 1px solid var(--line); background: var(--paper-raised); transition: transform 160ms ease, border-color 160ms ease; }
+.social-link-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.social-link-card > span { color: var(--accent); letter-spacing: .1em; font-size: .62rem; font-weight: 800; }
+.social-link-card strong { display: block; margin-top: 46px; font: 500 2rem Georgia, serif; }
+.social-link-card p { max-width: 350px; margin-bottom: 0; color: var(--muted); line-height: 1.6; }
+.social-link-card i { position: absolute; top: 26px; right: 28px; color: var(--accent); font-size: 1.25rem; font-style: normal; }
 .contact-details { margin-top: 100px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
 .contact-details div { min-height: 150px; padding: 24px 24px 24px 0; }
 .contact-details div + div { border-left: 1px solid var(--line); padding-left: 24px; }
@@ -276,6 +283,7 @@ h1 em { color: var(--accent); font-weight: inherit; }
   .mobile-nav { display: flex; gap: 24px; overflow-x: auto; padding-block: 12px 15px; scrollbar-width: none; color: var(--muted); font-size: .75rem; font-weight: 700; }
   .mobile-nav::-webkit-scrollbar { display: none; }
   .site-footer { padding-block: 50px; grid-template-columns: 1fr; align-items: start; }
+  .footer-links { justify-content: flex-start; }
   .copyright { grid-column: auto; margin: 8px 0 0; }
   .home-cta > div { align-items: flex-start; flex-direction: column; }
   .page-main { padding-bottom: 84px; }
@@ -307,6 +315,7 @@ h1 em { color: var(--accent); font-weight: inherit; }
   .contact-intro h1 { font-size: clamp(3.25rem, 15vw, 5rem); }
   .contact-card { margin-top: 62px; padding: 32px 26px; align-items: flex-start; flex-direction: column; }
   .contact-card .button { width: 100%; }
+  .contact-socials { grid-template-columns: 1fr; }
   .contact-details { margin-top: 80px; grid-template-columns: 1fr; }
   .contact-details div { min-height: auto; padding: 24px 0; }
   .contact-details div + div { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }

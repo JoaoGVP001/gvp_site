@@ -1,100 +1,176 @@
-# vinext-starter
+<div align="center">
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+# João Guilherme — Site Pessoal
 
-## Prerequisites
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3500&pause=1100&color=EF5B35&center=true&vCenter=true&width=760&lines=Projetos%2C+estudos+e+experi%C3%AAncias;Ci%C3%AAncia+da+Computa%C3%A7%C3%A3o;Transformando+curiosidade+em+c%C3%B3digo)](https://github.com/JoaoGVP001/gvp_site)
 
-- Node.js `>=22.13.0`
+### Um portfólio para compartilhar projetos, aprendizado e evolução em tecnologia.
 
-## Quick Start
+[![Site](https://img.shields.io/badge/Site-Publicado-2E8B57?style=flat-square&logo=cloudflare&logoColor=white)](https://joao-guilherme-portfolio.joaogvp.chatgpt.site)
+[![Next.js](https://img.shields.io/badge/App_Router-Next.js-171814?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Status](https://img.shields.io/badge/Status-Em_evolu%C3%A7%C3%A3o-EF5B35?style=flat-square)](https://github.com/JoaoGVP001/gvp_site)
+
+[Visão geral](#visão-geral) · [Páginas](#páginas) · [Tecnologias](#tecnologias) · [Projeto em destaque](#projeto-em-destaque) · [Execução](#execução-local)
+
+</div>
+
+---
+
+## Visão geral
+
+Este é o meu site pessoal: um espaço público para apresentar quem sou, registrar o que estou estudando e documentar os projetos que desenvolvo durante minha formação em **Ciência da Computação**.
+
+O site foi organizado para começar leve e continuar fácil de evoluir. O conteúdo atual é estático, as notas possuem uma busca no próprio navegador e toda a experiência funciona em tema claro ou escuro, tanto no computador quanto no celular.
+
+## Funcionalidades
+
+| Recurso | O que o site oferece |
+| --- | --- |
+| **Apresentação pessoal** | Home direta com formação, áreas de interesse e chamadas principais |
+| **Página Sobre** | Jornada, objetivos, valores e tecnologias em estudo |
+| **Projeto detalhado** | Visão completa do BookReadNet, desafio, solução e destaques |
+| **Caderno de estudos** | Notas sobre programação, banco de dados, redes e ferramentas |
+| **Pesquisa e filtros** | Busca instantânea por texto, categoria e tags nas anotações |
+| **Tema claro e escuro** | Preferência salva automaticamente no dispositivo |
+| **Design responsivo** | Layout adaptado para celular, tablet e desktop |
+| **Contato e redes** | GitHub, LinkedIn e Instagram disponíveis em pontos estratégicos |
+| **SEO** | Metadados por página, Open Graph, sitemap e robots.txt |
+
+## Páginas
+
+```text
+/
+├── /sobre
+├── /projetos
+│   └── /projetos/bookreadnet
+├── /notas
+│   └── /notas/[slug]
+└── /contato
+```
+
+| Página | Conteúdo |
+| --- | --- |
+| **Início** | Apresentação, BookReadNet, últimas notas e contato |
+| **Sobre** | Formação, interesses, objetivos e valores |
+| **Projetos** | Projeto selecionado e acesso aos detalhes |
+| **BookReadNet** | Tecnologias, status, desafio, solução e funcionalidades |
+| **Notas** | Base de conhecimento com busca e categorias |
+| **Contato** | GitHub, LinkedIn, Instagram e interesses profissionais |
+
+## Tecnologias
+
+<div align="center">
+
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=17232D)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+<br>
+![vinext](https://img.shields.io/badge/vinext-App_Router-EF5B35?style=for-the-badge)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+
+</div>
+
+### Como cada tecnologia participa
+
+| Tecnologia | Uso no projeto |
+| --- | --- |
+| **React 19** | Componentes, composição das páginas e busca interativa |
+| **TypeScript** | Tipagem dos projetos, notas, componentes e rotas |
+| **Next.js App Router** | Organização de layouts, páginas, rotas dinâmicas e metadados |
+| **vinext** | Compatibilidade do App Router com build baseado em Vite |
+| **Tailwind CSS 4** | Pipeline de estilos e base de utilitários |
+| **CSS customizado** | Identidade visual, temas, responsividade e componentes editoriais |
+| **Vite 8** | Desenvolvimento local e geração otimizada dos arquivos finais |
+| **Cloudflare Workers** | Execução da versão publicada pelo OpenAI Sites |
+
+## Projeto em destaque
+
+### BookReadNet
+
+O **BookReadNet** é uma aplicação desktop concluída para cadastrar, organizar e ler HQs, mangás e livros digitais. Possui leitor integrado, biblioteca local, histórico e salvamento automático do progresso.
+
+Formatos suportados: **PDF, CBZ, CBR e CB7**.
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Tkinter](https://img.shields.io/badge/Tkinter-E7643B?style=flat-square&logo=python&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON-17232D?style=flat-square&logo=json&logoColor=white)
+![PyMuPDF](https://img.shields.io/badge/PyMuPDF-B30B00?style=flat-square&logo=adobeacrobatreader&logoColor=white)
+![Pillow](https://img.shields.io/badge/Pillow-D9A441?style=flat-square&logo=python&logoColor=white)
+![py7zr](https://img.shields.io/badge/py7zr-4F6D7A?style=flat-square&logo=7zip&logoColor=white)
+![rarfile](https://img.shields.io/badge/rarfile-7B4B94?style=flat-square)
+![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
+
+[Abrir detalhes no site](https://joao-guilherme-portfolio.joaogvp.chatgpt.site/projetos/bookreadnet) · [Ver repositório](https://github.com/JoaoGVP001/BookReadNet)
+
+</div>
+
+## Estrutura
+
+```text
+app/
+├── _components/       # Navegação, rodapé, cards e componentes interativos
+├── contato/           # Página de contato e redes sociais
+├── notas/             # Listagem e páginas dinâmicas das notas
+├── projetos/          # Projeto selecionado e detalhe do BookReadNet
+├── sobre/             # Formação, interesses e valores
+├── globals.css        # Identidade visual, temas e responsividade
+├── layout.tsx         # Estrutura global e metadados sociais
+└── page.tsx           # Página inicial
+
+content/notes/          # Fontes Markdown das anotações
+lib/content.ts          # Dados tipados de projetos e notas
+public/                 # Favicon e cartão de compartilhamento
+tests/                  # Validação do HTML renderizado
+```
+
+## Execução local
+
+### Pré-requisitos
+
+- Node.js 22.13 ou superior
+- Git
+
+### Clonar e instalar
 
 ```bash
+git clone https://github.com/JoaoGVP001/gvp_site.git
+cd gvp_site
 npm install
+```
+
+### Desenvolvimento
+
+```bash
 npm run dev
+```
+
+O site ficará disponível em `http://localhost:3000`.
+
+### Validar a versão final
+
+```bash
 npm run build
+npm test
 ```
 
-This starter does not use `wrangler.jsonc`.
+## Conteúdo
 
-## Included Shape
+Os dados exibidos pelo site ficam centralizados em `lib/content.ts`. As fontes das anotações também estão organizadas em `content/notes/`, permitindo que novos estudos sejam adicionados sem alterar a identidade visual.
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+## Contato
 
-## Workspace Auth Headers
+<div align="center">
 
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
+[![GitHub](https://img.shields.io/badge/GitHub-JoaoGVP001-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JoaoGVP001)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Jo%C3%A3o_Vargas-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jo%C3%A3o-vargas-7ba1b836b)
+[![Instagram](https://img.shields.io/badge/Instagram-@joao.gvp__-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/joao.gvp_/)
 
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
+### Desenvolvido com curiosidade, constância e atenção aos detalhes.
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=4000&pause=1200&color=D9A441&center=true&vCenter=true&width=680&lines=Aprender.+Construir.+Compartilhar.;Um+projeto+de+cada+vez.)](https://github.com/JoaoGVP001/gvp_site)
 
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
-```
-
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+</div>
