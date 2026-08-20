@@ -32,6 +32,7 @@ O site foi organizado para começar leve e continuar fácil de evoluir. O conte�
 | **Projeto detalhado** | Visão completa do BookReadNet, desafio, solução e destaques |
 | **Caderno de estudos** | Notas sobre programação, banco de dados, redes e ferramentas |
 | **Pesquisa e filtros** | Busca instantânea por texto, categoria e tags nas anotações |
+| **Laboratório interativo** | Jogo da cobrinha com teclado, controles touch, pontuação e recorde local |
 | **Tema claro e escuro** | Preferência salva automaticamente no dispositivo |
 | **Design responsivo** | Layout adaptado para celular, tablet e desktop |
 | **Contato e redes** | GitHub, LinkedIn e Instagram disponíveis em pontos estratégicos |
@@ -46,6 +47,7 @@ O site foi organizado para começar leve e continuar fácil de evoluir. O conte�
 │   └── /projetos/bookreadnet
 ├── /notas
 │   └── /notas/[slug]
+├── /laboratorio
 └── /contato
 ```
 
@@ -56,6 +58,7 @@ O site foi organizado para começar leve e continuar fácil de evoluir. O conte�
 | **Projetos** | Projeto selecionado e acesso aos detalhes |
 | **BookReadNet** | Tecnologias, status, desafio, solução e funcionalidades |
 | **Notas** | Base de conhecimento com busca e categorias |
+| **Laboratório** | Jogo Snake desenvolvido com React e TypeScript |
 | **Contato** | GitHub, LinkedIn, Instagram e interesses profissionais |
 
 ## Tecnologias
@@ -114,6 +117,7 @@ Formatos suportados: **PDF, CBZ, CBR e CB7**.
 app/
 ├── _components/       # Navegação, rodapé, cards e componentes interativos
 ├── contato/           # Página de contato e redes sociais
+├── laboratorio/       # Experimentos interativos e jogo Snake
 ├── notas/             # Listagem e páginas dinâmicas das notas
 ├── projetos/          # Projeto selecionado e detalhe do BookReadNet
 ├── sobre/             # Formação, interesses e valores

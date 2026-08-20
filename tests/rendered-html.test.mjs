@@ -29,8 +29,20 @@ test("server-renders the personal portfolio", async () => {
   assert.match(html, /curiosidade/);
   assert.match(html, /BookReadNet/);
   assert.match(html, /O que tenho aprendido/);
+  assert.match(html, /href="\/laboratorio"/);
   assert.match(html, /http:\/\/localhost(?::3000)?\/og\.png/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
+});
+
+test("renders the interactive laboratory page", async () => {
+  const response = await render("/laboratorio");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Laboratório \| João Guilherme<\/title>/i);
+  assert.match(html, /Snake_01/);
+  assert.match(html, /experimento interativo feito com React e TypeScript/i);
+  assert.match(html, /recorde/i);
 });
 
 test("renders shareable detail pages with their own metadata", async () => {

@@ -52,8 +52,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="home-laboratory shell" aria-labelledby="laboratory-title">
+        <div>
+          <p className="section-number">03 / LABORATÓRIO</p>
+          <h2 id="laboratory-title">Código que você pode jogar.</h2>
+          <p>Uma versão da cobrinha feita com React e TypeScript, controles para teclado e celular, pontuação e recorde local.</p>
+          <Link className="button button-primary" href="/laboratorio">Abrir laboratório <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="lab-preview" aria-hidden="true">
+          <span className="preview-food" />
+          <span className="preview-snake p1" /><span className="preview-snake p2" /><span className="preview-snake p3" /><span className="preview-snake p4" /><span className="preview-snake p5" />
+          <small>SNAKE_01 · REACT + TYPESCRIPT</small>
+        </div>
+      </section>
+
       <section className="home-cta shell">
-        <p className="section-number">03 / PRÓXIMO PASSO</p>
+        <p className="section-number">04 / PRÓXIMO PASSO</p>
         <div><h2>Tem uma ideia interessante?</h2><Link className="button button-primary" href="/contato">Vamos conversar <span aria-hidden="true">↗</span></Link></div>
       </section>
     </main>
