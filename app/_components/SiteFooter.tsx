@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- Navegação completa evita depender do roteador no cliente. */
 export function SiteFooter() {
   return (
     <footer className="site-footer shell">

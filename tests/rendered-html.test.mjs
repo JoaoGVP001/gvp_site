@@ -28,6 +28,9 @@ test("server-renders the personal portfolio", async () => {
   assert.match(html, /Eu transformo/);
   assert.match(html, /curiosidade/);
   assert.match(html, /BookReadNet/);
+  assert.match(html, /GITHUB · API REST/);
+  assert.match(html, /@(?:<!-- -->)?JoaoGVP001/);
+  assert.match(html, /Dados públicos|Dados locais temporários/);
   assert.match(html, /O que tenho aprendido/);
   assert.match(html, /href="\/laboratorio"/);
   assert.doesNotMatch(html, /static\/chunks\/link-[^"]+\.js/i);
@@ -80,4 +83,11 @@ test("removes every disposable starter artifact", async () => {
   await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
   await assert.rejects(access(new URL("../app/_sites-preview/preview.css", import.meta.url)));
   await access(new URL("public/og.png", templateRoot));
+});
+
+test("keeps the GitHub integration server-side and resilient", async () => {
+  const githubSource = await readFile(new URL("../lib/github.ts", import.meta.url), "utf8");
+  assert.match(githubSource, /GITHUB_CACHE_TTL/);
+  assert.match(githubSource, /fallbackSnapshot/);
+  assert.doesNotMatch(githubSource, /NEXT_PUBLIC|Authorization/);
 });

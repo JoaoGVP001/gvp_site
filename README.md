@@ -21,7 +21,7 @@
 
 Este é o meu site pessoal: um espaço público para apresentar quem sou, registrar o que estou estudando e documentar os projetos que desenvolvo durante minha formação em **Ciência da Computação**.
 
-O site foi organizado para começar leve e continuar fácil de evoluir. O conteúdo atual é estático, as notas possuem uma busca no próprio navegador e toda a experiência funciona em tema claro ou escuro, tanto no computador quanto no celular.
+O site foi organizado para começar leve e continuar fácil de evoluir. O perfil e o BookReadNet recebem dados públicos da API REST do GitHub, as notas possuem uma busca no próprio navegador e toda a experiência funciona em tema claro ou escuro, tanto no computador quanto no celular.
 
 ## Funcionalidades
 
@@ -30,6 +30,7 @@ O site foi organizado para começar leve e continuar fácil de evoluir. O conte�
 | **Apresentação pessoal** | Home direta com formação, áreas de interesse e chamadas principais |
 | **Página Sobre** | Jornada, objetivos, valores e tecnologias em estudo |
 | **Projeto detalhado** | Visão completa do BookReadNet, desafio, solução e destaques |
+| **GitHub ao vivo** | Perfil, métricas e linguagens do BookReadNet obtidos pela API REST pública |
 | **Caderno de estudos** | Notas sobre programação, banco de dados, redes e ferramentas |
 | **Pesquisa e filtros** | Busca instantânea por texto, categoria e tags nas anotações |
 | **Laboratório interativo** | Jogo da cobrinha com teclado, controles touch, pontuação e recorde local |
@@ -87,6 +88,13 @@ O site foi organizado para começar leve e continuar fácil de evoluir. O conte�
 | **CSS customizado** | Identidade visual, temas, responsividade e componentes editoriais |
 | **Vite 8** | Desenvolvimento local e geração otimizada dos arquivos finais |
 | **Cloudflare Workers** | Execução da versão publicada pelo OpenAI Sites |
+| **GitHub REST API** | Perfil, estatísticas e linguagens do BookReadNet, com cache e fallback local |
+
+### Integração com o GitHub
+
+A página inicial consulta três endpoints públicos no servidor: perfil, repositório e linguagens do BookReadNet. As respostas ficam em cache por uma hora para preservar o limite da API e reduzir latência. Se o GitHub estiver indisponível ou o limite for atingido, o site continua renderizando uma cópia local segura dos dados.
+
+Esta primeira versão não usa token e não expõe credenciais no navegador.
 
 ## Projeto em destaque
 
@@ -127,6 +135,7 @@ app/
 
 content/notes/          # Fontes Markdown das anotações
 lib/content.ts          # Dados tipados de projetos e notas
+lib/github.ts           # API REST do GitHub, cache e fallback local
 public/                 # Favicon e cartão de compartilhamento
 tests/                  # Validação do HTML renderizado
 ```
