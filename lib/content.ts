@@ -1,19 +1,3 @@
-export type Project = {
-  slug: string;
-  index: string;
-  name: string;
-  shortDescription: string;
-  description: string;
-  tags: string[];
-  status: string;
-  year: string;
-  category: string;
-  challenge: string;
-  solution: string;
-  highlights: string[];
-  github: string;
-};
-
 export type NoteSection = {
   heading: string;
   paragraphs: string[];
@@ -31,24 +15,6 @@ export type Note = {
   tags: string[];
   sections: NoteSection[];
 };
-
-export const projects: Project[] = [
-  {
-    slug: "bookreadnet",
-    index: "01",
-    name: "BookReadNet",
-    shortDescription: "Aplicação desktop para organizar e ler HQs, mangás e livros digitais.",
-    description: "Uma biblioteca digital pessoal com leitor integrado, progresso automático e suporte a PDF, CBZ, CBR e CB7.",
-    tags: ["Python", "Tkinter", "JSON", "PyMuPDF", "Pillow", "py7zr", "rarfile", "Pytest"],
-    status: "Concluído",
-    year: "2026",
-    category: "Aplicação desktop",
-    challenge: "Reunir cadastro, organização e leitura de diferentes formatos digitais em uma experiência local simples, preservando o progresso de cada obra.",
-    solution: "Uma aplicação em Python com interface Tkinter, persistência em JSON e leitores especializados para PDF, CBZ, CBR e CB7 seguindo princípios de orientação a objetos.",
-    highlights: ["Leitor integrado para quatro formatos", "Progresso e histórico automáticos", "Biblioteca local com pesquisa e filtros"],
-    github: "https://github.com/JoaoGVP001/BookReadNet",
-  },
-];
 
 export const notes: Note[] = [
   {
@@ -166,10 +132,6 @@ export const notes: Note[] = [
     ],
   },
 ];
-
-export function getProject(slug: string) {
-  return projects.find((project) => project.slug === slug);
-}
 
 export function getNote(slug: string) {
   return notes.find((note) => note.slug === slug);

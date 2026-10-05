@@ -147,31 +147,6 @@ h1 em { color: var(--accent); font-weight: inherit; }
 .copyright { grid-column: 1 / -1; margin: -38px 0 0; }
 
 /* Home */
-.home-github { padding-block: 96px; border-top: 1px solid var(--line); }
-.github-heading { align-items: end; }
-.github-live-status { flex: none; display: flex; align-items: center; gap: 9px; margin: 0 0 5px; color: var(--muted); font: 700 .68rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
-.github-live-status > span { width: 7px; height: 7px; border-radius: 50%; background: #4caf6a; box-shadow: 0 0 0 4px #4caf6a20; }
-.github-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 18px; }
-.github-profile-card, .github-repository-card { min-height: 360px; padding: 28px; border: 1px solid var(--line); }
-.github-profile-card { display: flex; flex-direction: column; background: var(--code); color: var(--code-ink); border-color: var(--code); }
-.github-repository-card { background: var(--paper-raised); }
-.github-card-label { display: flex; justify-content: space-between; color: var(--muted); font: 700 .62rem ui-monospace, monospace; letter-spacing: .08em; }
-.github-card-label span:last-child { color: var(--accent); }
-.github-profile-card .github-card-label { color: #888b81; }
-.github-identity { display: flex; align-items: center; gap: 16px; margin-top: 38px; }
-.github-identity img { flex: none; width: 72px; height: 72px; border-radius: 50%; border: 2px solid #4a4c44; object-fit: cover; background: #33342f; }
-.github-identity div { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
-.github-identity strong { overflow: hidden; text-overflow: ellipsis; font: 500 1.5rem Georgia, serif; white-space: nowrap; }
-.github-identity span { color: #92948b; font: .72rem ui-monospace, monospace; }
-.github-location { margin: 22px 0 0; color: #92948b; font-size: .74rem; }
-.github-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: auto 0 28px; padding-top: 24px; border-top: 1px solid #3c3e37; }
-.github-stats div { display: flex; flex-direction: column-reverse; gap: 6px; }
-.github-stats dt { color: #888b81; font-size: .6rem; text-transform: uppercase; letter-spacing: .05em; }
-.github-stats dd { margin: 0; font: 500 1.45rem Georgia, serif; }
-.github-profile-card > a { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid #3c3e37; color: #c9c7bf; font-size: .74rem; font-weight: 750; }
-.github-profile-card > a:hover { color: var(--accent); }
-.github-repository-card h3 { margin: 40px 0 12px; font: 500 clamp(2rem, 4vw, 3.1rem)/1 Georgia, serif; letter-spacing: -.04em; }
-.github-repository-card > p { max-width: 550px; margin: 0; color: var(--muted); line-height: 1.65; }
 .repository-meta { display: grid; grid-template-columns: repeat(4, 1fr); margin: 32px 0 0; border-block: 1px solid var(--line); }
 .repository-meta div { padding: 16px 12px; }
 .repository-meta div:first-child { padding-left: 0; }
@@ -385,9 +360,6 @@ h1 em { color: var(--accent); font-weight: inherit; }
   .site-footer { padding-block: 50px; grid-template-columns: 1fr; align-items: start; }
   .footer-links { justify-content: flex-start; }
   .copyright { grid-column: auto; margin: 8px 0 0; }
-  .home-github { padding-block: 72px; }
-  .github-grid { grid-template-columns: 1fr; }
-  .github-profile-card, .github-repository-card { min-height: 340px; }
   .home-laboratory { grid-template-columns: 1fr; gap: 58px; padding-block: 72px 86px; }
   .lab-preview { justify-self: start; max-width: 500px; width: calc(100% - 16px); }
   .home-cta > div { align-items: flex-start; flex-direction: column; }
@@ -449,9 +421,6 @@ h1 em { color: var(--accent); font-weight: inherit; }
   .detail-meta > *:nth-child(even) { border-left: 0; }
   .detail-meta > * + * { border-top: 1px solid var(--line); }
   .catalog-heading { align-items: flex-start; flex-direction: column; gap: 6px; }
-  .github-profile-card, .github-repository-card { min-height: auto; padding: 22px; }
-  .github-stats { gap: 12px; margin-top: 34px; }
-  .github-stats dt { font-size: .52rem; }
   .repository-meta { grid-template-columns: 1fr 1fr; }
   .repository-meta div { padding: 14px 10px; }
   .repository-meta div:first-child { padding-left: 10px; }

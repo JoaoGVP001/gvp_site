@@ -18,7 +18,7 @@ async function render(path = "/") {
   );
 }
 
-test("server-renders commercial support and technical portfolio", async () => {
+test("server-renders support for small businesses", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -28,11 +28,8 @@ test("server-renders commercial support and technical portfolio", async () => {
   assert.match(html, /Suporte de TI para/);
   assert.match(html, /pequenas empresas/);
   assert.match(html, /Solicitar atendimento/);
-  assert.match(html, /BookReadNet/);
-  assert.match(html, /GITHUB · API REST/);
-  assert.match(html, /@(?:<!-- -->)?JoaoGVP001/);
-  assert.match(html, /Dados públicos|Dados locais temporários/);
-  assert.match(html, /O que tenho aprendido/);
+  assert.doesNotMatch(html, /BookReadNet|GitHub|JoaoGVP001|href="\/projetos/i);
+  assert.match(html, /Orientações para sua empresa/);
   assert.match(html, /href="\/laboratorio"/);
   assert.doesNotMatch(html, /static\/chunks\/link-[^"]+\.js/i);
   assert.match(html, /http:\/\/localhost(?::3000)?\/og\.png/);
@@ -40,12 +37,13 @@ test("server-renders commercial support and technical portfolio", async () => {
 });
 
 test("serves every primary navigation destination", async () => {
-  const routes = ["/servicos", "/planos", "/sobre", "/projetos", "/notas", "/laboratorio", "/contato"];
+  const routes = ["/servicos", "/planos", "/sobre", "/notas", "/laboratorio", "/contato"];
   const responses = await Promise.all(routes.map((route) => render(route)));
 
   for (const [index, response] of responses.entries()) {
     assert.equal(response.status, 200, `${routes[index]} should render`);
     const html = await response.text();
+    assert.doesNotMatch(html, /BookReadNet|GitHub|JoaoGVP001|href="\/projetos/i);
     assert.doesNotMatch(html, /static\/chunks\/link-[^"]+\.js/i);
   }
 });
@@ -61,21 +59,13 @@ test("renders the interactive laboratory page", async () => {
   assert.match(html, /recorde/i);
 });
 
-test("renders shareable detail pages with their own metadata", async () => {
-  const [projectResponse, noteResponse] = await Promise.all([
-    render("/projetos/bookreadnet"),
-    render("/notas/git-basico"),
-  ]);
-  assert.equal(projectResponse.status, 200);
-  assert.equal(noteResponse.status, 200);
-
-  const [projectHtml, noteHtml] = await Promise.all([projectResponse.text(), noteResponse.text()]);
-  assert.match(projectHtml, /<title>BookReadNet \| João Guilherme<\/title>/i);
-  assert.match(projectHtml, /property="og:title" content="BookReadNet"/i);
-  assert.doesNotMatch(projectHtml, /og\.png/);
-  assert.match(noteHtml, /<title>Git: o essencial para começar \| João Guilherme<\/title>/i);
-  assert.match(noteHtml, /name="twitter:title" content="Git: o essencial para começar"/i);
-  assert.doesNotMatch(noteHtml, /og\.png/);
+test("notes keep their own shareable metadata", async () => {
+  const response = await render("/notas/git-basico");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Git: o essencial para começar \| João Guilherme<\/title>/i);
+  assert.match(html, /name="twitter:title" content="Git: o essencial para começar"/i);
+  assert.doesNotMatch(html, /og\.png|BookReadNet|GitHub|JoaoGVP001/i);
 });
 
 test("removes every disposable starter artifact", async () => {
@@ -84,13 +74,6 @@ test("removes every disposable starter artifact", async () => {
   await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
   await assert.rejects(access(new URL("../app/_sites-preview/preview.css", import.meta.url)));
   await access(new URL("public/og.png", templateRoot));
-});
-
-test("keeps the GitHub integration server-side and resilient", async () => {
-  const githubSource = await readFile(new URL("../lib/github.ts", import.meta.url), "utf8");
-  assert.match(githubSource, /GITHUB_CACHE_TTL/);
-  assert.match(githubSource, /fallbackSnapshot/);
-  assert.doesNotMatch(githubSource, /NEXT_PUBLIC|Authorization/);
 });
 
 test("commercial pages explain scope and provide a contact request form", async () => {
@@ -105,4 +88,22 @@ test("commercial pages explain scope and provide a contact request form", async 
   assert.match(contact, /Solicitar atendimento/);
   assert.match(contact, /name="consentimento"/);
   assert.doesNotMatch(contact, /href="https:\/\/wa\.me/);
+});
+
+
+test("old project URLs redirect permanently to services", async () => {
+  for (const route of ["/projetos", "/projetos/bookreadnet"]) {
+    const response = await render(route);
+    assert.equal(response.status, 308);
+    assert.equal(response.headers.get("location"), "/servicos");
+    assert.doesNotMatch(await response.text(), /BookReadNet|GitHub|JoaoGVP001/i);
+  }
+});
+
+test("sitemap excludes discontinued project pages", async () => {
+  const response = await render("/sitemap.xml");
+  assert.equal(response.status, 200);
+  const xml = await response.text();
+  assert.match(xml, /\/servicos/);
+  assert.doesNotMatch(xml, /\/projetos|BookReadNet|GitHub/i);
 });

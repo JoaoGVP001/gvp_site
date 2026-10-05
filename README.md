@@ -1,212 +1,52 @@
-<div align="center">
+# João Guilherme — Suporte de TI para empresas
 
-# João Guilherme — Suporte de TI e Portfólio
+Site de suporte de TI para pequenas empresas em Concórdia/SC e região. A apresentação prioriza os problemas atendidos, as modalidades de suporte e a solicitação de atendimento.
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3500&pause=1100&color=EF5B35&center=true&vCenter=true&width=760&lines=Projetos%2C+estudos+e+experi%C3%AAncias;Ci%C3%AAncia+da+Computa%C3%A7%C3%A3o;Transformando+curiosidade+em+c%C3%B3digo)](https://github.com/JoaoGVP001/gvp_site)
-
-### Suporte de TI para pequenas empresas em Concórdia e região, com portfólio técnico e acadêmico.
-
-[![Site](https://img.shields.io/badge/Site-Publicado-2E8B57?style=flat-square&logo=cloudflare&logoColor=white)](https://joao-guilherme-portfolio.joaogvp.chatgpt.site)
-[![Next.js](https://img.shields.io/badge/App_Router-Next.js-171814?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Status](https://img.shields.io/badge/Status-Em_evolu%C3%A7%C3%A3o-EF5B35?style=flat-square)](https://github.com/JoaoGVP001/gvp_site)
-
-[Visão geral](#visão-geral) · [Páginas](#páginas) · [Tecnologias](#tecnologias) · [Projeto em destaque](#projeto-em-destaque) · [Execução](#execução-local)
-
-</div>
-
----
-
-## Visão geral
-
-O projeto reúne presença profissional para serviços de TI em Concórdia e região e portfólio técnico e acadêmico em **Ciência da Computação**. A Home prioriza serviços, público, atendimento e contato, preservando BookReadNet, GitHub, notas e laboratório.
-
-O site foi organizado para começar leve e continuar fácil de evoluir. O perfil e o BookReadNet recebem dados públicos da API REST do GitHub, as notas possuem uma busca no próprio navegador e toda a experiência funciona em tema claro ou escuro, tanto no computador quanto no celular.
-
-## Funcionalidades
-
-| Recurso | O que o site oferece |
-| --- | --- |
-| **Apresentação pessoal** | Home direta com formação, áreas de interesse e chamadas principais |
-| **Página Sobre** | Jornada, objetivos, valores e tecnologias em estudo |
-| **Projeto detalhado** | Visão completa do BookReadNet, desafio, solução e destaques |
-| **GitHub ao vivo** | Perfil, métricas e linguagens do BookReadNet obtidos pela API REST pública |
-| **Caderno de estudos** | Notas sobre programação, banco de dados, redes e ferramentas |
-| **Pesquisa e filtros** | Busca instantânea por texto, categoria e tags nas anotações |
-| **Laboratório interativo** | Jogo da cobrinha com teclado, controles touch, pontuação e recorde local |
-| **Tema claro e escuro** | Preferência salva automaticamente no dispositivo |
-| **Design responsivo** | Layout adaptado para celular, tablet e desktop |
-| **Contato e redes** | GitHub, LinkedIn e Instagram disponíveis em pontos estratégicos |
-| **SEO** | Metadados por página, Open Graph, sitemap e robots.txt |
+[Site publicado](https://joao-guilherme-portfolio.joaogvp.chatgpt.site)
 
 ## Páginas
 
-```text
-/
-├── /servicos
-├── /planos
-├── /sobre
-├── /projetos
-│   └── /projetos/bookreadnet
-├── /notas
-│   └── /notas/[slug]
-├── /laboratorio
-└── /contato
-```
+- `/`: serviços, segmentos atendidos, processo de atendimento, planos e orientações.
+- `/servicos`: computadores, impressoras, rede e Wi-Fi, backup, programas, suporte remoto, e-mail e manutenção preventiva.
+- `/planos`: atendimento avulso, Essencial, Comércio e Empresa, sob consulta.
+- `/sobre`: apresentação, formação em Ciência da Computação e áreas de atendimento.
+- `/contato`: formulário de solicitação e canais de contato.
+- `/notas` e `/notas/[slug]`: orientações e anotações com pesquisa e categorias.
+- `/laboratorio`: experimento interativo, disponível na navegação secundária.
 
-| Página | Conteúdo |
-| --- | --- |
-| **Início** | Apresentação, BookReadNet, últimas notas e contato |
-| **Sobre** | Formação, interesses, objetivos e valores |
-| **Projetos** | Projeto selecionado e acesso aos detalhes |
-| **BookReadNet** | Tecnologias, status, desafio, solução e funcionalidades |
-| **Notas** | Base de conhecimento com busca e categorias |
-| **Laboratório** | Jogo Snake desenvolvido com React e TypeScript |
-| **Contato** | GitHub, LinkedIn, Instagram e interesses profissionais |
+As antigas páginas de projetos redirecionam permanentemente para `/servicos`. Projetos pessoais e perfil de código não são apresentados no site comercial.
 
-## Tecnologias
+## Recursos
 
-<div align="center">
+- Tema claro/escuro e layout responsivo.
+- Metadados por página, sitemap e robots.
+- Formulário com validação no servidor, consentimento, antispam e limite de frequência.
+- Leads persistidos no D1, com protocolo após gravação e campos preservados em caso de erro.
+- Integração opcional Resend para confirmação e notificação, com auditoria de tentativas.
 
-![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=17232D)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-<br>
-![vinext](https://img.shields.io/badge/vinext-App_Router-EF5B35?style=for-the-badge)
-![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+## Execução e verificação
 
-</div>
+A base usa React 19, TypeScript, vinext/App Router, Vite, Tailwind e Cloudflare Workers.
 
-### Como cada tecnologia participa
-
-| Tecnologia | Uso no projeto |
-| --- | --- |
-| **React 19** | Componentes, composição das páginas e busca interativa |
-| **TypeScript** | Tipagem dos projetos, notas, componentes e rotas |
-| **Next.js App Router** | Organização de layouts, páginas, rotas dinâmicas e metadados |
-| **vinext** | Compatibilidade do App Router com build baseado em Vite |
-| **Tailwind CSS 4** | Pipeline de estilos e base de utilitários |
-| **CSS customizado** | Identidade visual, temas, responsividade e componentes editoriais |
-| **Vite 8** | Desenvolvimento local e geração otimizada dos arquivos finais |
-| **Cloudflare Workers** | Execução da versão publicada pelo OpenAI Sites |
-| **GitHub REST API** | Perfil, estatísticas e linguagens do BookReadNet, com cache e fallback local |
-
-### Integração com o GitHub
-
-A página inicial consulta três endpoints públicos no servidor: perfil, repositório e linguagens do BookReadNet. As respostas ficam em cache por uma hora para preservar o limite da API e reduzir latência. Se o GitHub estiver indisponível ou o limite for atingido, o site continua renderizando uma cópia local segura dos dados.
-
-Esta primeira versão não usa token e não expõe credenciais no navegador.
-
-## Projeto em destaque
-
-### BookReadNet
-
-O **BookReadNet** é uma aplicação desktop concluída para cadastrar, organizar e ler HQs, mangás e livros digitais. Possui leitor integrado, biblioteca local, histórico e salvamento automático do progresso.
-
-Formatos suportados: **PDF, CBZ, CBR e CB7**.
-
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Tkinter](https://img.shields.io/badge/Tkinter-E7643B?style=flat-square&logo=python&logoColor=white)
-![JSON](https://img.shields.io/badge/JSON-17232D?style=flat-square&logo=json&logoColor=white)
-![PyMuPDF](https://img.shields.io/badge/PyMuPDF-B30B00?style=flat-square&logo=adobeacrobatreader&logoColor=white)
-![Pillow](https://img.shields.io/badge/Pillow-D9A441?style=flat-square&logo=python&logoColor=white)
-![py7zr](https://img.shields.io/badge/py7zr-4F6D7A?style=flat-square&logo=7zip&logoColor=white)
-![rarfile](https://img.shields.io/badge/rarfile-7B4B94?style=flat-square)
-![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
-
-[Abrir detalhes no site](https://joao-guilherme-portfolio.joaogvp.chatgpt.site/projetos/bookreadnet) · [Ver repositório](https://github.com/JoaoGVP001/BookReadNet)
-
-</div>
-
-## Estrutura
-
-```text
-app/
-├── _components/       # Navegação, rodapé, cards e componentes interativos
-├── contato/           # Página de contato e redes sociais
-├── laboratorio/       # Experimentos interativos e jogo Snake
-├── notas/             # Listagem e páginas dinâmicas das notas
-├── projetos/          # Projeto selecionado e detalhe do BookReadNet
-├── sobre/             # Formação, interesses e valores
-├── globals.css        # Identidade visual, temas e responsividade
-├── layout.tsx         # Estrutura global e metadados sociais
-└── page.tsx           # Página inicial
-
-content/notes/          # Fontes Markdown das anotações
-lib/content.ts          # Dados tipados de projetos e notas
-lib/github.ts           # API REST do GitHub, cache e fallback local
-public/                 # Favicon e cartão de compartilhamento
-tests/                  # Validação do HTML renderizado
-```
-
-## Execução local
-
-### Pré-requisitos
-
-- Node.js 22.13 ou superior
-- Git
-
-### Clonar e instalar
-
-```bash
-git clone https://github.com/JoaoGVP001/gvp_site.git
-cd gvp_site
+```sh
 npm install
-```
-
-### Desenvolvimento
-
-```bash
 npm run dev
-```
-
-O site ficará disponível em `http://localhost:3000`.
-
-### Validar a versão final
-
-```bash
 npm run build
+npm run lint
+npm run typecheck
 npm test
 ```
 
-## Conteúdo
+As migrações são geradas por `npm run db:generate`. Os tipos do Cloudflare podem ser atualizados por `npm run cf:types`. Os testes de persistência usam SQLite local e as migrações reais, sem acessar dados de produção ou enviar e-mails.
 
-Os dados exibidos pelo site ficam centralizados em `lib/content.ts`. As fontes das anotações também estão organizadas em `content/notes/`, permitindo que novos estudos sejam adicionados sem alterar a identidade visual.
+## Estado comercial e hospedagem
 
-## Contato
+A versão comercial foi publicada em 05/10/2026 com acesso público. O D1 de produção usa o binding `DB`; as migrações 0000 e 0001 estão aplicadas, com as tabelas `leads`, `contact_rate_limits` e `lead_email_attempts`. O UUID placeholder em `vite.config.ts` é apenas para desenvolvimento local.
 
-<div align="center">
+Os canais de demonstração continuam fictícios. Configure os contatos reais em `lib/support.ts`: WhatsApp com código do país e DDD, e e-mail profissional. O envio de e-mails está desativado no runtime até configurar credenciais e endereços reais, conforme [CONFIGURACAO_EMAIL.md](docs/CONFIGURACAO_EMAIL.md).
 
-[![GitHub](https://img.shields.io/badge/GitHub-JoaoGVP001-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JoaoGVP001)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Jo%C3%A3o_Vargas-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jo%C3%A3o-vargas-7ba1b836b)
-[![Instagram](https://img.shields.io/badge/Instagram-@joao.gvp__-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/joao.gvp_/)
+Planos estão sob consulta até definir preços, horários, visitas, deslocamento e limites de atendimento. Também permanecem pendentes analytics, retenção de dados e Perfil da Empresa no Google. Consulte [IMPLEMENTACAO_SUPORTE_TI.md](IMPLEMENTACAO_SUPORTE_TI.md).
 
-### Desenvolvido com curiosidade, constância e atenção aos detalhes.
+Os leads não possuem endpoint público de leitura. O limite de solicitações usa um hash do IP, sem gravar o endereço original; não substitui proteção de borda contra ataques distribuídos. O acompanhamento inicial pode ser feito pelo console D1 autorizado.
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=4000&pause=1200&color=D9A441&center=true&vCenter=true&width=680&lines=Aprender.+Construir.+Compartilhar.;Um+projeto+de+cada+vez.)](https://github.com/JoaoGVP001/gvp_site)
-
-</div>
-
-## Versão comercial e configuração
-
-- Serviços: oito categorias de suporte com escopo e condições de orçamento.
-- Planos: avulso, Essencial, Comércio e Empresa, sob consulta; preços e prazos ainda não definidos.
-- Contato: canais fictícios identificados e formulário com envio ao endpoint `/api/contato`, validação no servidor, protocolo e persistência D1 com o banco D1 e as migrações provisionados no site publicado.
-- Configure canais reais em `lib/support.ts`: WhatsApp com código do país e DDD, e e-mail profissional. Links de WhatsApp têm mensagem pré-preenchida e só aparecem quando configurados.
-- Notas: conteúdo sobre backup e diagnóstico de impressoras, além do caderno acadêmico existente.
-- SEO local e navegação comercial; notas e laboratório disponíveis pelo rodapé.
-
-Consulte [IMPLEMENTACAO_SUPORTE_TI.md](IMPLEMENTACAO_SUPORTE_TI.md) para as próximas etapas. Cada etapa validada é enviada ao GitHub. A versão comercial foi publicada em 05/10/2026 e o banco D1 foi confirmado na hospedagem. Novos pushes ao GitHub continuam exigindo publicação pelo fluxo Sites.
-
-## Persistência de solicitações
-
-O binding lógico `DB` está habilitado em `.openai/hosting.json`. O banco de produção foi provisionado na publicação de 05/10/2026. As migrações `drizzle/0000_flippant_the_twelve.sql` e `drizzle/0001_modern_mauler.sql` foram aplicadas e as tabelas `leads`, `contact_rate_limits` e `lead_email_attempts` foram confirmadas pela hospedagem. O UUID placeholder de `vite.config.ts` é apenas para desenvolvimento local; não representa um banco publicado.
-
-O endpoint público aceita somente POST JSON da mesma origem. Valida os campos, exige autorização de contato, limita o corpo a 16 KiB e aceita até cinco solicitações por identificador de IP a cada janela de dez minutos. O IP é convertido em hash; o endereço original não é gravado. Há um campo antispam adicional. Isso reduz abuso, mas não substitui proteção de borda contra ataques distribuídos. Os registros de limite e os leads devem ter rotina de retenção definida antes de iniciar operação com clientes reais.
-
-A resposta 201 contém um protocolo apenas depois de gravar o lead. Falta de binding, migração ou falha de armazenamento gera 503 e mantém os campos na interface. Os leads não possuem endpoint público de leitura. O acompanhamento inicial pode ser feito pelo console D1 autorizado; O painel permanece para uma etapa futura. A confirmação por e-mail e a notificação de João têm integração opcional com Resend, desativada até a configuração dos canais reais. Consulte [a configuração de e-mail](docs/CONFIGURACAO_EMAIL.md).
-
-Para conferir os tipos: `npm run typecheck`. Para atualizar as declarações do runtime depois de alterar bindings: `npm run cf:types`. Os testes de leads usam SQLite local com a migração real, sem acessar dados de produção.
+Cada etapa validada é enviada ao repositório. Novos pushes exigem publicação pelo fluxo Sites para atualizar o site hospedado.
