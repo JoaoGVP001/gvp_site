@@ -31,7 +31,7 @@ export function ContactForm() {
     } finally { sending.current = false; setPending(false); }
   }}>
     <h2>Solicitar atendimento</h2>
-    <p>Conte o que sua empresa precisa. Seus dados serão usados para avaliar a solicitação e retornar pelo canal escolhido.</p>
+    <p>Conte o que sua empresa precisa. Seus dados serão usados para avaliar a solicitação e retornar pelo canal escolhido. Quando disponível, você também receberá uma confirmação por e-mail.</p>
     <div className="form-grid">
       <label>Nome<input name="nome" autoComplete="name" required maxLength={120} /></label>
       <label>Empresa<input name="empresa" autoComplete="organization" required maxLength={160} /></label>

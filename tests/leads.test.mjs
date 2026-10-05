@@ -1,23 +1,12 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
-import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
 import { createLeadHandler, validateLead } from "../lib/leads.ts";
 
-const valid = { nome: "João", empresa: "Loja de teste", cidade: "Concórdia", telefone: "(49) 99999-9999", email: "teste@example.com", assunto: "Backup", mensagem: "Gostaria de organizar cópias dos arquivos.", preferencia: "E-mail", consentimento: true, website: "" };
-function request(body = valid, headers = {}) {
-  return new Request("https://example.com/api/contato", { method: "POST", headers: { origin: "https://example.com", "content-type": "application/json", "cf-connecting-ip": "192.0.2.1", ...headers }, body: typeof body === "string" ? body : JSON.stringify(body) });
-}
-async function fixture() {
-  const sqlite = new DatabaseSync(":memory:");
-  sqlite.exec(await readFile(new URL("../drizzle/0000_flippant_the_twelve.sql", import.meta.url), "utf8"));
-  const database = { prepare(sql) { return { bind(...values) { return { async first() { return sqlite.prepare(sql).get(...values) ?? null; }, async run() { sqlite.prepare(sql).run(...values); return { success: true }; } }; } }; } };
-  return { sqlite, handler: createLeadHandler(() => database) };
-}
+import { sampleLead as valid, contactRequest as request, leadFixture as fixture } from "./helpers/leads.mjs";
 
 test("validates required fields, bounded input, consent, enumerations and honeypot", () => {
   assert.equal(validateLead(valid).nome, "João");
-  for (const invalid of [null, [], { ...valid, nome: " " }, { ...valid, mensagem: "x".repeat(3001) }, { ...valid, email: "invalid" }, { ...valid, telefone: "abc123" }, { ...valid, assunto: "Inventado" }, { ...valid, preferencia: "SMS" }, { ...valid, consentimento: false }, { ...valid, website: "spam" }]) assert.equal(validateLead(invalid), null);
+  for (const invalid of [null, [], { ...valid, nome: " " }, { ...valid, mensagem: "x".repeat(3001) }, { ...valid, email: "invalid" }, { ...valid, email: "a,b@example.com" }, { ...valid, email: "a@example.com\nBcc:x@example.com" }, { ...valid, telefone: "abc123" }, { ...valid, assunto: "Inventado" }, { ...valid, preferencia: "SMS" }, { ...valid, consentimento: false }, { ...valid, website: "spam" }]) assert.equal(validateLead(invalid), null);
 });
 
 test("persists validated lead with default status and returns a protocol", async () => {

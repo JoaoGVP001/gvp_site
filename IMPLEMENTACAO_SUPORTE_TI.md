@@ -10,15 +10,16 @@
 - Endpoint POST /api/contato, protocolo após gravação e erro recuperável com campos preservados.
 - Schema leads e migração SQL gerada; tipos do Cloudflare gerados para checagem TypeScript.
 - Duas notas para pequenas empresas; projetos e conteúdo acadêmico preservados.
+- Integração opcional Resend para confirmação e notificação, com registro das tentativas no D1 e proteção contra duplicação por lead.
 
 ## Próximas etapas dependentes de configuração ou operação real
 - Substituir contatos fictícios por WhatsApp Business e e-mail profissional confirmados.
 - Definir preços, horários, chamados, deslocamento, visitas e prazo de resposta.
 - Provisionar D1 no ambiente publicado e aplicar a migração antes de habilitar o recebimento em produção.
-- Escolher serviço de e-mail, configurar credenciais e implementar confirmação e notificação de leads.
+- Configurar credenciais e domínio verificado do Resend, aplicar a migração de tentativas e habilitar os e-mails após definir os canais reais.
 - Configurar analytics e eventos após a publicação da versão comercial.
 - Criar Perfil da Empresa no Google com dados comerciais reais.
 - Acrescentar depoimentos e casos apenas após atendimentos reais e autorização.
 - Avaliar novos projetos de suporte e painel administrativo conforme a necessidade.
 
-Não foram criados depoimentos, experiência profissional ou resultados de clientes fictícios. O formulário só confirma recebimento quando a gravação funciona. A confirmação por e-mail e a notificação de João ainda dependem de provedor configurado.
+Não foram criados depoimentos, experiência profissional ou resultados de clientes fictícios. O formulário só confirma recebimento quando a gravação funciona. A integração de e-mails está implementada, mas permanece desativada até a configuração de remetente, destinatário e chave de API reais.

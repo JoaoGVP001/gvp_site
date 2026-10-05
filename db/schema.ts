@@ -21,3 +21,13 @@ export const contactRateLimits = sqliteTable("contact_rate_limits", {
   windowStart: integer("window_start").notNull(),
   count: integer("count").notNull(),
 });
+
+export const leadEmailAttempts = sqliteTable("lead_email_attempts", {
+  id: text("id").primaryKey(),
+  leadId: text("lead_id").notNull().references(() => leads.id, { onDelete: "cascade" }),
+  kind: text("kind", { enum: ["notification", "confirmation"] }).notNull(),
+  status: text("status", { enum: ["pending", "skipped", "accepted", "failed", "unknown"] }).notNull(),
+  providerId: text("provider_id"),
+  criadoEm: integer("criado_em").notNull(),
+  atualizadoEm: integer("atualizado_em").notNull(),
+}, table => [index("lead_email_attempts_lead_idx").on(table.leadId)]);

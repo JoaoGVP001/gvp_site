@@ -14,14 +14,14 @@ export function validateLead(value: unknown): LeadInput | null {
     result[key] = text;
   }
   if (data.website !== undefined && data.website !== "") return null;
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(result.email)) return null;
+  if (!/^[^\s@<>(),;:"[\]\\]+@[^\s@<>(),;:"[\]\\]+\.[^\s@<>(),;:"[\]\\]+$/.test(result.email)) return null;
   if (!/^[+\d\s().-]+$/.test(result.telefone) || result.telefone.replace(/\D/g, "").length < 10) return null;
   if (!attendanceTypes.includes(result.assunto) || !contactPreferences.includes(result.preferencia)) return null;
   if (data.consentimento !== true) return null;
   return result as LeadInput;
 }
 
-export function createLeadHandler(database: () => D1Database) {
+export function createLeadHandler(database: () => D1Database, afterSave?: (db: D1Database, id: string, lead: LeadInput) => Promise<void>) {
   return async (request: Request): Promise<Response> => {
     const response = (body: Record<string, unknown>, status: number) => Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
     if (request.headers.get("origin") !== new URL(request.url).origin) return response({ error: "Origem da solicitação inválida." }, 403);
@@ -64,6 +64,9 @@ export function createLeadHandler(database: () => D1Database) {
       const id = crypto.randomUUID();
       await db.prepare(`INSERT INTO leads (id, nome, empresa, cidade, telefone, email, assunto, mensagem, preferencia, origem, status, criado_em, atualizado_em)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'contato', 'novo', ?, ?)`).bind(id, lead.nome, lead.empresa, lead.cidade, lead.telefone, lead.email, lead.assunto, lead.mensagem, lead.preferencia, now, now).run();
+      if (afterSave) {
+        try { await afterSave(db, id, lead); } catch { console.error("contact_email_notification_unavailable"); }
+      }
       return response({ id, message: "Solicitação recebida. Guarde seu protocolo. O retorno depende da disponibilidade de atendimento." }, 201);
     } catch {
       // Não registrar payload, dados pessoais ou mensagens de erros do banco.
