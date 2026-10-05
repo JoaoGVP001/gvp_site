@@ -11,13 +11,16 @@
 - Schema leads e migração SQL gerada; tipos do Cloudflare gerados para checagem TypeScript.
 - Duas notas para pequenas empresas; projetos e conteúdo acadêmico preservados.
 - Integração opcional Resend para confirmação e notificação, com registro das tentativas no D1 e proteção contra duplicação por lead.
+- Versão comercial publicada em 05/10/2026, preservando acesso público: https://joao-guilherme-portfolio.joaogvp.chatgpt.site
+- D1 de produção provisionado com binding DB; as migrações 0000 e 0001 foram aplicadas. As três tabelas da aplicação foram confirmadas pela hospedagem.
+- CONTACT_EMAIL_ENABLED=false configurado no runtime publicado; nenhum envio real de e-mail foi realizado nesta etapa.
 
 ## Próximas etapas dependentes de configuração ou operação real
 - Substituir contatos fictícios por WhatsApp Business e e-mail profissional confirmados.
 - Definir preços, horários, chamados, deslocamento, visitas e prazo de resposta.
-- Provisionar D1 no ambiente publicado e aplicar a migração antes de habilitar o recebimento em produção.
-- Configurar credenciais e domínio verificado do Resend, aplicar a migração de tentativas e habilitar os e-mails após definir os canais reais.
-- Configurar analytics e eventos após a publicação da versão comercial.
+- Configurar credenciais e domínio verificado do Resend, habilitar os e-mails após definir os canais reais.
+- Configurar analytics e eventos de conversão.
+- Definir rotina de retenção para leads e registros técnicos antes de iniciar operação com clientes reais.
 - Criar Perfil da Empresa no Google com dados comerciais reais.
 - Acrescentar depoimentos e casos apenas após atendimentos reais e autorização.
 - Avaliar novos projetos de suporte e painel administrativo conforme a necessidade.

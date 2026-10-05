@@ -194,16 +194,16 @@ Os dados exibidos pelo site ficam centralizados em `lib/content.ts`. As fontes d
 
 - Serviços: oito categorias de suporte com escopo e condições de orçamento.
 - Planos: avulso, Essencial, Comércio e Empresa, sob consulta; preços e prazos ainda não definidos.
-- Contato: canais fictícios identificados e formulário com envio ao endpoint `/api/contato`, validação no servidor, protocolo e persistência D1 quando o banco e a migração estiverem provisionados.
+- Contato: canais fictícios identificados e formulário com envio ao endpoint `/api/contato`, validação no servidor, protocolo e persistência D1 com o banco D1 e as migrações provisionados no site publicado.
 - Configure canais reais em `lib/support.ts`: WhatsApp com código do país e DDD, e e-mail profissional. Links de WhatsApp têm mensagem pré-preenchida e só aparecem quando configurados.
 - Notas: conteúdo sobre backup e diagnóstico de impressoras, além do caderno acadêmico existente.
 - SEO local e navegação comercial; notas e laboratório disponíveis pelo rodapé.
 
-Consulte [IMPLEMENTACAO_SUPORTE_TI.md](IMPLEMENTACAO_SUPORTE_TI.md) para as próximas etapas. Cada etapa validada é enviada ao GitHub. Isso não provisiona automaticamente o banco nem confirma implantação do site.
+Consulte [IMPLEMENTACAO_SUPORTE_TI.md](IMPLEMENTACAO_SUPORTE_TI.md) para as próximas etapas. Cada etapa validada é enviada ao GitHub. A versão comercial foi publicada em 05/10/2026 e o banco D1 foi confirmado na hospedagem. Novos pushes ao GitHub continuam exigindo publicação pelo fluxo Sites.
 
 ## Persistência de solicitações
 
-O binding lógico `DB` está habilitado em `.openai/hosting.json`. A plataforma deve provisionar o banco real e aplicar `drizzle/0000_flippant_the_twelve.sql` antes de receber leads em produção. O UUID placeholder de `vite.config.ts` é apenas para desenvolvimento local; não representa um banco publicado.
+O binding lógico `DB` está habilitado em `.openai/hosting.json`. O banco de produção foi provisionado na publicação de 05/10/2026. As migrações `drizzle/0000_flippant_the_twelve.sql` e `drizzle/0001_modern_mauler.sql` foram aplicadas e as tabelas `leads`, `contact_rate_limits` e `lead_email_attempts` foram confirmadas pela hospedagem. O UUID placeholder de `vite.config.ts` é apenas para desenvolvimento local; não representa um banco publicado.
 
 O endpoint público aceita somente POST JSON da mesma origem. Valida os campos, exige autorização de contato, limita o corpo a 16 KiB e aceita até cinco solicitações por identificador de IP a cada janela de dez minutos. O IP é convertido em hash; o endereço original não é gravado. Há um campo antispam adicional. Isso reduz abuso, mas não substitui proteção de borda contra ataques distribuídos. Os registros de limite e os leads devem ter rotina de retenção definida antes de iniciar operação com clientes reais.
 
