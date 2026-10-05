@@ -93,15 +93,16 @@ test("keeps the GitHub integration server-side and resilient", async () => {
   assert.doesNotMatch(githubSource, /NEXT_PUBLIC|Authorization/);
 });
 
-test("commercial pages explain scope and contact demo without fake delivery", async () => {
+test("commercial pages explain scope and provide a contact request form", async () => {
   const plans = await (await render("/planos")).text();
   assert.match(plans, /SOB CONSULTA/);
   assert.match(plans, /deslocamento/);
   assert.doesNotMatch(plans, /R\$\s*(199|349)/);
   const contact = await (await render("/contato")).text();
   assert.match(contact, /contato@example\.com/);
-  assert.match(contact, /não envia nem armazena/);
+  assert.match(contact, /Autorizo/);
   assert.match(contact, /type="email"/);
-  assert.match(contact, /Preparar solicitação/);
+  assert.match(contact, /Solicitar atendimento/);
+  assert.match(contact, /name="consentimento"/);
   assert.doesNotMatch(contact, /href="https:\/\/wa\.me/);
 });

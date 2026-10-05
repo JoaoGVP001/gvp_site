@@ -194,9 +194,19 @@ Os dados exibidos pelo site ficam centralizados em `lib/content.ts`. As fontes d
 
 - Serviços: oito categorias de suporte com escopo e condições de orçamento.
 - Planos: avulso, Essencial, Comércio e Empresa, sob consulta; preços e prazos ainda não definidos.
-- Contato: canais fictícios identificados e formulário que prepara um resumo local. Não há envio nem persistência de dados nesta versão.
+- Contato: canais fictícios identificados e formulário com envio ao endpoint `/api/contato`, validação no servidor, protocolo e persistência D1 quando o banco e a migração estiverem provisionados.
 - Configure canais reais em `lib/support.ts`: WhatsApp com código do país e DDD, e e-mail profissional. Links de WhatsApp têm mensagem pré-preenchida e só aparecem quando configurados.
 - Notas: conteúdo sobre backup e diagnóstico de impressoras, além do caderno acadêmico existente.
 - SEO local e navegação comercial; notas e laboratório disponíveis pelo rodapé.
 
-Consulte [IMPLEMENTACAO_SUPORTE_TI.md](IMPLEMENTACAO_SUPORTE_TI.md) para as próximas etapas. Esta atualização não publica o site automaticamente.
+Consulte [IMPLEMENTACAO_SUPORTE_TI.md](IMPLEMENTACAO_SUPORTE_TI.md) para as próximas etapas. Cada etapa validada é enviada ao GitHub. Isso não provisiona automaticamente o banco nem confirma implantação do site.
+
+## Persistência de solicitações
+
+O binding lógico `DB` está habilitado em `.openai/hosting.json`. A plataforma deve provisionar o banco real e aplicar `drizzle/0000_flippant_the_twelve.sql` antes de receber leads em produção. O UUID placeholder de `vite.config.ts` é apenas para desenvolvimento local; não representa um banco publicado.
+
+O endpoint público aceita somente POST JSON da mesma origem. Valida os campos, exige autorização de contato, limita o corpo a 16 KiB e aceita até cinco solicitações por identificador de IP a cada janela de dez minutos. O IP é convertido em hash; o endereço original não é gravado. Há um campo antispam adicional. Isso reduz abuso, mas não substitui proteção de borda contra ataques distribuídos. Os registros de limite e os leads devem ter rotina de retenção definida antes de iniciar operação com clientes reais.
+
+A resposta 201 contém um protocolo apenas depois de gravar o lead. Falta de binding, migração ou falha de armazenamento gera 503 e mantém os campos na interface. Os leads não possuem endpoint público de leitura. O acompanhamento inicial pode ser feito pelo console D1 autorizado; painel, confirmação por e-mail e notificação automática não fazem parte desta etapa.
+
+Para conferir os tipos: `npm run typecheck`. Para atualizar as declarações do runtime depois de alterar bindings: `npm run cf:types`. Os testes de leads usam SQLite local com a migração real, sem acessar dados de produção.

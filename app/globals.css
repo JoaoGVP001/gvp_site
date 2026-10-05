@@ -487,3 +487,7 @@ a.service-card:hover { border-color: var(--accent); }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 @media (max-width: 1000px) { .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .support-steps { grid-template-columns: 1fr; gap: 14px; } }
 @media (max-width: 600px) { .service-grid, .form-grid { grid-template-columns: 1fr; } .support-form { padding: 20px; } .support-summary h2 { font-size: 1.7rem; } }
+.contact-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.contact-consent { display: flex; align-items: flex-start; gap: 12px; line-height: 1.6; }
+.contact-consent input { margin-top: 6px; flex: none; }
+.button:disabled { opacity: .6; cursor: wait; }
