@@ -1,35 +1,16 @@
 import type { Metadata } from "next";
+import { ContactForm } from "../_components/ContactForm";
+import { SupportCTA } from "../_components/SupportCTA";
+import { businessContact } from "../../lib/support";
 
-export const metadata: Metadata = {
-  title: "Contato",
-  description: "Entre em contato com João Guilherme para conversar sobre tecnologia, projetos e oportunidades.",
-};
+export const metadata: Metadata = { title: "Solicitar suporte de TI em Concórdia", description: "Prepare sua solicitação de suporte de TI para computadores, impressoras, redes e backup. Atendimento para pequenas empresas em Concórdia e região." };
 
 export default function ContactPage() {
-  return (
-    <main className="contact-page shell">
-      <section className="contact-intro">
-        <p className="eyebrow"><span /> Contato</p>
-        <h1>Boas conversas podem virar <em>ótimos projetos.</em></h1>
-        <p>Se você quer falar sobre tecnologia, uma oportunidade ou uma ideia interessante, escolha o canal que fizer mais sentido. Vou gostar de conhecer o contexto.</p>
-      </section>
-      <section className="contact-card">
-        <div><span>CANAL PRINCIPAL</span><h2>GitHub</h2><p>Acompanhe meus projetos ou inicie uma conversa pelo meu perfil.</p></div>
-        <a className="button button-primary" href="https://github.com/JoaoGVP001" target="_blank" rel="noreferrer">Abrir @JoaoGVP001 <span aria-hidden="true">↗</span></a>
-      </section>
-      <section className="contact-socials" aria-label="Redes sociais">
-        <a className="social-link-card" href="https://www.linkedin.com/in/jo%C3%A3o-vargas-7ba1b836b" target="_blank" rel="noreferrer">
-          <span>PROFISSIONAL</span><strong>LinkedIn</strong><p>Formação, experiências e conexões profissionais.</p><i aria-hidden="true">↗</i>
-        </a>
-        <a className="social-link-card" href="https://www.instagram.com/joao.gvp_/" target="_blank" rel="noreferrer">
-          <span>PESSOAL</span><strong>Instagram</strong><p>Bastidores, interesses e momentos fora do código.</p><i aria-hidden="true">↗</i>
-        </a>
-      </section>
-      <section className="contact-details">
-        <div><span>INTERESSES</span><p>Desenvolvimento web, backend, dados e projetos acadêmicos.</p></div>
-        <div><span>LOCALIZAÇÃO</span><p>Brasil · disponível para conexões remotas.</p></div>
-        <div><span>RESPOSTA</span><p>Conte um pouco sobre a ideia para começarmos com contexto.</p></div>
-      </section>
-    </main>
-  );
+  return <main className="contact-page shell">
+    <section className="contact-intro"><p className="eyebrow"><span /> Contato · Concórdia e região</p><h1>Sua empresa precisa de <em>suporte de TI?</em></h1><p>Conte o que está acontecendo, quantos equipamentos estão envolvidos e onde fica sua empresa. A avaliação inicial ajuda a definir atendimento remoto ou presencial.</p></section>
+    <section className="contact-card"><div><span>CANAIS COMERCIAIS</span><h2>WhatsApp e e-mail</h2>{businessContact.whatsapp || businessContact.email ? <SupportCTA /> : <><p>Contatos fictícios para demonstração. Atendimento por estes canais ainda não está ativo.</p><p>WhatsApp: +55 (49) 00000-0000<br />E-mail: contato@example.com</p></>}</div></section>
+    <ContactForm />
+    <section className="contact-socials" aria-label="Perfis profissionais"><a className="social-link-card" href="https://www.linkedin.com/in/jo%C3%A3o-vargas-7ba1b836b" target="_blank" rel="noreferrer"><span>PROFISSIONAL</span><strong>LinkedIn</strong><p>Formação e conexões profissionais.</p><i aria-hidden="true">↗</i></a><a className="social-link-card" href="https://github.com/JoaoGVP001" target="_blank" rel="noreferrer"><span>PORTFÓLIO TÉCNICO</span><strong>GitHub</strong><p>Projetos e código público.</p><i aria-hidden="true">↗</i></a></section>
+    <section className="contact-details"><div><span>LOCALIZAÇÃO</span><p>Concórdia/SC e região, com suporte remoto conforme o problema.</p></div><div><span>ATENDIMENTO</span><p>Horário, disponibilidade, deslocamento e prazo de resposta combinados na proposta.</p></div><div><span>ORÇAMENTO</span><p>Equipamentos, peças e licenças são orçados separadamente.</p></div></section>
+  </main>;
 }

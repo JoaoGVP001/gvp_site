@@ -13,8 +13,8 @@ async function requestOrigin() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const origin = await requestOrigin();
-  const title = "João Guilherme | Desenvolvedor";
-  const description = "Projetos, estudos e experiências de João Guilherme em Ciência da Computação.";
+  const title = "João Guilherme | Suporte de TI em Concórdia SC";
+  const description = "Suporte de TI para pequenas empresas em Concórdia e região. Computadores, impressoras, redes, backups e suporte remoto. Portfólio técnico e acadêmico.";
   const socialImage = `${origin}/og.png`;
 
   return {

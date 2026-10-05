@@ -1,6 +1,8 @@
-/* eslint-disable @next/next/no-html-link-for-pages, @next/next/no-img-element, react/no-unescaped-entities -- Links nativos preservam a navegação e a foto vem diretamente do perfil público do GitHub. */
+/* eslint-disable @next/next/no-html-link-for-pages, @next/next/no-img-element -- Links nativos preservam a navegação e a foto vem diretamente do perfil público do GitHub. */
 import { Note, projects, notes } from "../lib/content";
 import { getGitHubSnapshot } from "../lib/github";
+import { services } from "../lib/support";
+import { SupportCTA } from "./_components/SupportCTA";
 import { ProjectCard } from "./_components/ProjectCard";
 
 function compactDate(note: Note) {
@@ -28,28 +30,22 @@ export default async function Home() {
     <main>
       <section className="hero shell" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> Olá, eu sou João Guilherme</p>
-          <h1 id="hero-title">Eu transformo <em>curiosidade</em> em código.</h1>
-          <p className="hero-text">Estudante de Ciência da Computação explorando software, dados e novas ideias — um projeto de cada vez.</p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="/projetos/bookreadnet">Explorar o BookReadNet <span aria-hidden="true">↗</span></a>
-            <a className="button button-ghost" href="https://github.com/JoaoGVP001" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-          </div>
+          <p className="eyebrow"><span /> João Guilherme · Concórdia e região</p>
+          <h1 id="hero-title">Suporte de TI para <em>pequenas empresas.</em></h1>
+          <p className="hero-text">Computadores, impressoras, redes, backups e suporte remoto para empresas em Concórdia e região que precisam de tecnologia funcionando sem complicação.</p>
+          <SupportCTA /><a className="text-link" href="/servicos">Conhecer serviços →</a>
         </div>
-        <aside className="hero-card" aria-label="Resumo profissional">
-          <div className="code-dots"><span /><span /><span /></div>
-          <div className="code-line"><b>const</b> joao = {'{'}</div>
-          <div className="code-line indent">formacao: <strong>"Ciência da Computação"</strong>,</div>
-          <div className="code-line indent">foco: [<strong>"web"</strong>, <strong>"dados"</strong>, <strong>"mobile"</strong>],</div>
-          <div className="code-line indent">aprendendoSempre: <b>true</b>,</div>
-          <div className="code-line">{'}'};</div>
-          <div className="status-line"><i /> disponível para criar</div>
-        </aside>
+        <aside className="hero-card support-summary" aria-label="Modalidades de atendimento"><p className="section-number">TI PARA O SEU NEGÓCIO</p><h2>Menos interrupções.<br />Mais organização.</h2><ul><li>Atendimento local em Concórdia e região</li><li>Suporte remoto autorizado</li><li>Foco em pequenas empresas</li><li>Serviços avulsos e planos mensais</li></ul></aside>
       </section>
 
-      <section className="home-section shell" aria-labelledby="projects-title">
+      <section className="home-section shell" aria-labelledby="services-title"><div className="section-heading"><div><p className="section-number">01 / SERVIÇOS</p><h2 id="services-title">Ajuda para a tecnologia do dia a dia.</h2></div><a className="text-link" href="/servicos">Todos os serviços →</a></div><div className="service-grid">{services.map(service => <a className="service-card" href={`/servicos#${service.slug}`} key={service.slug}><span className="service-icon" aria-hidden="true">{service.icon}</span><h3>{service.name}</h3><p>{service.description}</p></a>)}</div></section>
+<section className="home-section shell"><div className="section-heading"><div><p className="section-number">02 / PARA QUEM</p><h2>Para quem depende de TI todos os dias.</h2></div></div><p>Contabilidades, clínicas, consultórios, escritórios jurídicos, imobiliárias, lojas, oficinas e pequenos comércios. Apoio para negócios que precisam de um ponto de contato para suas necessidades de tecnologia.</p><div className="segment-list">{["Contabilidade", "Clínicas", "Escritórios", "Lojas", "Oficinas", "Pequenos comércios"].map(segment => <span key={segment}>{segment}</span>)}</div></section>
+<section className="home-section shell"><div className="section-heading"><div><p className="section-number">03 / COMO FUNCIONA</p><h2>Do primeiro contato à orientação final.</h2></div></div><ol className="support-steps">{["Você conta o que está acontecendo.", "Analisamos o problema e combinamos o escopo.", "Atendimento remoto ou presencial conforme a necessidade.", "Solução e orientação para o uso no dia a dia.", "Possibilidade de acompanhamento mensal."].map(step => <li key={step}>{step}</li>)}</ol><SupportCTA /></section>
+<section className="home-section shell"><div className="section-heading"><div><p className="section-number">04 / ACOMPANHAMENTO</p><h2>Uma necessidade pontual ou apoio recorrente?</h2></div><a className="text-link" href="/planos">Conhecer planos →</a></div><p>Atendimento avulso, Essencial, Comércio ou proposta personalizada. Escopo, visitas e valores definidos conforme o ambiente.</p></section>
+<section className="home-section shell"><div className="section-heading"><div><p className="section-number">05 / SOBRE JOÃO</p><h2>Conhecimento técnico, comunicação clara.</h2></div><a className="text-link" href="/sobre">Conhecer João →</a></div><p>Sou João Guilherme, estudante de Ciência da Computação. Uno estudos de software, redes e dados à proposta de ajudar pequenas empresas a organizar sua tecnologia. Meus projetos e anotações mostram esse aprendizado na prática.</p></section>
+<section className="home-section shell" aria-labelledby="projects-title">
         <div className="section-heading">
-          <div><p className="section-number">01 / PROJETO</p><h2 id="projects-title">O projeto em que estou trabalhando.</h2></div>
+          <div><p className="section-number">06 / PROVA TÉCNICA</p><h2 id="projects-title">O projeto em que estou trabalhando.</h2></div>
           <a className="text-link" href="/projetos/bookreadnet">Ver projeto <span aria-hidden="true">→</span></a>
         </div>
         <div className="project-grid single-project">{projects.map((project) => <ProjectCard project={project} key={project.slug} />)}</div>
@@ -58,7 +54,7 @@ export default async function Home() {
       <section className="home-github shell" aria-labelledby="github-title">
         <div className="section-heading github-heading">
           <div>
-            <p className="section-number">02 / GITHUB · API REST</p>
+            <p className="section-number">07 / GITHUB · API REST</p>
             <h2 id="github-title">Código vivo, direto do GitHub.</h2>
           </div>
           <p className="github-live-status">
@@ -113,7 +109,7 @@ export default async function Home() {
 
       <section className="home-section notes-section shell" aria-labelledby="notes-title">
         <div className="section-heading">
-          <div><p className="section-number">03 / CADERNO</p><h2 id="notes-title">O que tenho aprendido.</h2></div>
+          <div><p className="section-number">08 / CADERNO</p><h2 id="notes-title">O que tenho aprendido.</h2></div>
           <a className="text-link" href="/notas">Abrir caderno <span aria-hidden="true">→</span></a>
         </div>
         <div className="note-list">
@@ -125,23 +121,9 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="home-laboratory shell" aria-labelledby="laboratory-title">
-        <div>
-          <p className="section-number">04 / LABORATÓRIO</p>
-          <h2 id="laboratory-title">Código que você pode jogar.</h2>
-          <p>Uma versão da cobrinha feita com React e TypeScript, controles para teclado e celular, pontuação e recorde local.</p>
-          <a className="button button-primary" href="/laboratorio">Abrir laboratório <span aria-hidden="true">→</span></a>
-        </div>
-        <div className="lab-preview" aria-hidden="true">
-          <span className="preview-food" />
-          <span className="preview-snake p1" /><span className="preview-snake p2" /><span className="preview-snake p3" /><span className="preview-snake p4" /><span className="preview-snake p5" />
-          <small>SNAKE_01 · REACT + TYPESCRIPT</small>
-        </div>
-      </section>
-
-      <section className="home-cta shell">
-        <p className="section-number">05 / PRÓXIMO PASSO</p>
-        <div><h2>Tem uma ideia interessante?</h2><a className="button button-primary" href="/contato">Vamos conversar <span aria-hidden="true">↗</span></a></div>
+<section className="home-cta shell">
+        <p className="section-number">09 / PRÓXIMO PASSO</p>
+        <div><h2>Sua empresa precisa de suporte?</h2><a className="button button-primary" href="/contato">Solicitar atendimento <span aria-hidden="true">↗</span></a></div>
       </section>
     </main>
   );

@@ -3,7 +3,7 @@ import { PageIntro } from "../_components/PageIntro";
 
 export const metadata: Metadata = {
   title: "Sobre",
-  description: "Conheça a formação, os interesses e os objetivos de João Guilherme.",
+  description: "Conheça João Guilherme, estudante de Ciência da Computação e sua proposta de suporte de TI para pequenas empresas em Concórdia.",
 };
 
 const skills = ["Next.js", "React", "TypeScript", "Python", "PostgreSQL", "Flutter", "Git", "Linux"];
@@ -11,13 +11,13 @@ const skills = ["Next.js", "React", "TypeScript", "Python", "PostgreSQL", "Flutt
 export default function AboutPage() {
   return (
     <main className="page-main">
-      <PageIntro eyebrow="Sobre mim" title="Tecnologia é onde minha curiosidade ganha forma." description="Sou estudante de Ciência da Computação. Gosto de entender como as coisas funcionam, organizar problemas complexos e transformar aprendizado em projetos que podem ser usados." />
+      <PageIntro eyebrow="Sobre mim" title="Tecnologia útil para quem precisa trabalhar." description="Sou estudante de Ciência da Computação. Gosto de entender como as coisas funcionam, organizar problemas complexos e transformar aprendizado em projetos que podem ser usados." />
       <section className="about-layout shell">
         <div className="about-copy">
           <p className="section-number">MINHA JORNADA</p>
-          <h2>Aprender, construir, compartilhar.</h2>
+          <h2>Entender o problema. Organizar a solução.</h2>
           <p>Minha formação reúne fundamentos de programação, banco de dados, redes e arquitetura de software. Fora da sala de aula, aprofundo esses temas criando aplicações e registrando o que descubro.</p>
-          <p>Tenho interesse especial por produtos web, backend e dados. Busco oportunidades em que eu possa aprender com pessoas experientes, contribuir com atenção aos detalhes e assumir desafios cada vez maiores.</p>
+          <p>Minha proposta é ajudar pequenas empresas em Concórdia e região com computadores, impressoras, redes e ferramentas de trabalho. O atendimento começa por ouvir o problema, avaliar o ambiente e combinar uma solução com escopo claro.</p>
         </div>
         <div className="timeline" aria-label="Linha do tempo">
           <article><span>AGORA</span><div><h3>Ciência da Computação</h3><p>Construindo fundamentos sólidos e projetos práticos.</p></div></article>

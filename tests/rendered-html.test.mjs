@@ -18,15 +18,16 @@ async function render(path = "/") {
   );
 }
 
-test("server-renders the personal portfolio", async () => {
+test("server-renders commercial support and technical portfolio", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>João Guilherme \| Desenvolvedor<\/title>/i);
-  assert.match(html, /Eu transformo/);
-  assert.match(html, /curiosidade/);
+  assert.match(html, /<title>João Guilherme \| Suporte de TI em Concórdia SC<\/title>/i);
+  assert.match(html, /Suporte de TI para/);
+  assert.match(html, /pequenas empresas/);
+  assert.match(html, /Solicitar atendimento/);
   assert.match(html, /BookReadNet/);
   assert.match(html, /GITHUB · API REST/);
   assert.match(html, /@(?:<!-- -->)?JoaoGVP001/);
@@ -39,7 +40,7 @@ test("server-renders the personal portfolio", async () => {
 });
 
 test("serves every primary navigation destination", async () => {
-  const routes = ["/sobre", "/projetos", "/notas", "/laboratorio", "/contato"];
+  const routes = ["/servicos", "/planos", "/sobre", "/projetos", "/notas", "/laboratorio", "/contato"];
   const responses = await Promise.all(routes.map((route) => render(route)));
 
   for (const [index, response] of responses.entries()) {
@@ -90,4 +91,17 @@ test("keeps the GitHub integration server-side and resilient", async () => {
   assert.match(githubSource, /GITHUB_CACHE_TTL/);
   assert.match(githubSource, /fallbackSnapshot/);
   assert.doesNotMatch(githubSource, /NEXT_PUBLIC|Authorization/);
+});
+
+test("commercial pages explain scope and contact demo without fake delivery", async () => {
+  const plans = await (await render("/planos")).text();
+  assert.match(plans, /SOB CONSULTA/);
+  assert.match(plans, /deslocamento/);
+  assert.doesNotMatch(plans, /R\$\s*(199|349)/);
+  const contact = await (await render("/contato")).text();
+  assert.match(contact, /contato@example\.com/);
+  assert.match(contact, /não envia nem armazena/);
+  assert.match(contact, /type="email"/);
+  assert.match(contact, /Preparar solicitação/);
+  assert.doesNotMatch(contact, /href="https:\/\/wa\.me/);
 });

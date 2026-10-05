@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const pages = ["", "/sobre", "/projetos", "/notas", "/contato"];
+  const pages = ["", "/servicos", "/planos", "/laboratorio", "/sobre", "/projetos", "/notas", "/contato"];
   return [
     ...pages.map((path) => ({ url: `${origin}${path}`, changeFrequency: "weekly" as const, priority: path === "" ? 1 : 0.8 })),
     ...projects.map((project) => ({ url: `${origin}/projetos/${project.slug}`, changeFrequency: "monthly" as const, priority: 0.7 })),

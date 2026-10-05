@@ -52,6 +52,22 @@ export const projects: Project[] = [
 
 export const notes: Note[] = [
   {
+    slug: "backup-pequena-empresa", title: "Como saber se sua empresa precisa de backup", excerpt: "Um primeiro passo para identificar dados importantes e organizar uma rotina de cópias.", category: "Backup", date: "2026-10-05", readingTime: "3 min", tags: ["suporte de TI", "backup"],
+    sections: [
+      { heading: "O que não pode parar?", paragraphs: ["Pense nos arquivos que sua empresa usa para trabalhar: documentos, cadastros e registros. Se perder um computador impedir o acesso a esses dados, é hora de organizar cópias e um processo de recuperação."] },
+      { heading: "Sincronização não basta", paragraphs: ["Uma pasta sincronizada pode propagar exclusões e alterações indesejadas. Verifique histórico de versões, retenção e possibilidade de recuperar arquivos. Mantenha cópias independentes e restrinja o acesso a elas."] },
+      { heading: "Combine uma rotina e teste", paragraphs: ["Defina o que copiar, com que frequência, onde guardar e quem acompanha falhas. Teste a recuperação periodicamente em um ambiente separado, sem sobrescrever os dados originais. Nenhuma rotina elimina todos os riscos."], bullets: ["Liste os dados essenciais", "Escolha cópias locais e externas conforme o cenário", "Acompanhe falhas e espaço disponível", "Teste a recuperação de arquivos"] },
+    ],
+  },
+  {
+    slug: "impressora-rede-diagnostico", title: "Impressora parou de funcionar: por onde começar", excerpt: "Verificações simples para separar falhas da impressora, da conexão e do computador.", category: "Suporte de TI", date: "2026-10-05", readingTime: "3 min", tags: ["impressoras", "redes"],
+    sections: [
+      { heading: "Comece pelo equipamento", paragraphs: ["Confira energia, papel e mensagens no painel. Se houver uma função de teste no próprio equipamento, use-a para verificar se a impressora consegue imprimir sem depender do computador."] },
+      { heading: "Identifique a extensão do problema", paragraphs: ["Veja se a falha ocorre em um computador ou em todos. Confira cabo ou Wi-Fi e se o computador está na rede correta. Anote a mensagem de erro antes de alterar configurações."] },
+      { heading: "Evite mudanças sem diagnóstico", paragraphs: ["Não restaure a impressora ou o roteador para os padrões de fábrica sem conhecer as configurações usadas pela empresa. Se o problema continuar, informe o modelo, a mensagem de erro e os equipamentos afetados ao solicitar atendimento."] },
+    ],
+  },
+  {
     slug: "git-basico",
     title: "Git: o essencial para começar",
     excerpt: "Um mapa curto dos comandos e conceitos que formam um fluxo de trabalho seguro no Git.",

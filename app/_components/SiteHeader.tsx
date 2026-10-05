@@ -3,10 +3,10 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const navigation = [
   { href: "/", label: "Início" },
+  { href: "/servicos", label: "Serviços" },
+  { href: "/planos", label: "Planos" },
   { href: "/sobre", label: "Sobre" },
   { href: "/projetos", label: "Projetos" },
-  { href: "/notas", label: "Notas" },
-  { href: "/laboratorio", label: "Laboratório" },
   { href: "/contato", label: "Contato" },
 ];
 

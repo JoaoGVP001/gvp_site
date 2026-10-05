@@ -1,10 +1,10 @@
 <div align="center">
 
-# João Guilherme — Site Pessoal
+# João Guilherme — Suporte de TI e Portfólio
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3500&pause=1100&color=EF5B35&center=true&vCenter=true&width=760&lines=Projetos%2C+estudos+e+experi%C3%AAncias;Ci%C3%AAncia+da+Computa%C3%A7%C3%A3o;Transformando+curiosidade+em+c%C3%B3digo)](https://github.com/JoaoGVP001/gvp_site)
 
-### Um portfólio para compartilhar projetos, aprendizado e evolução em tecnologia.
+### Suporte de TI para pequenas empresas em Concórdia e região, com portfólio técnico e acadêmico.
 
 [![Site](https://img.shields.io/badge/Site-Publicado-2E8B57?style=flat-square&logo=cloudflare&logoColor=white)](https://joao-guilherme-portfolio.joaogvp.chatgpt.site)
 [![Next.js](https://img.shields.io/badge/App_Router-Next.js-171814?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
@@ -19,7 +19,7 @@
 
 ## Visão geral
 
-Este é o meu site pessoal: um espaço público para apresentar quem sou, registrar o que estou estudando e documentar os projetos que desenvolvo durante minha formação em **Ciência da Computação**.
+O projeto reúne presença profissional para serviços de TI em Concórdia e região e portfólio técnico e acadêmico em **Ciência da Computação**. A Home prioriza serviços, público, atendimento e contato, preservando BookReadNet, GitHub, notas e laboratório.
 
 O site foi organizado para começar leve e continuar fácil de evoluir. O perfil e o BookReadNet recebem dados públicos da API REST do GitHub, as notas possuem uma busca no próprio navegador e toda a experiência funciona em tema claro ou escuro, tanto no computador quanto no celular.
 
@@ -43,6 +43,8 @@ O site foi organizado para começar leve e continuar fácil de evoluir. O perfil
 
 ```text
 /
+├── /servicos
+├── /planos
 ├── /sobre
 ├── /projetos
 │   └── /projetos/bookreadnet
@@ -187,3 +189,14 @@ Os dados exibidos pelo site ficam centralizados em `lib/content.ts`. As fontes d
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=4000&pause=1200&color=D9A441&center=true&vCenter=true&width=680&lines=Aprender.+Construir.+Compartilhar.;Um+projeto+de+cada+vez.)](https://github.com/JoaoGVP001/gvp_site)
 
 </div>
+
+## Versão comercial e configuração
+
+- Serviços: oito categorias de suporte com escopo e condições de orçamento.
+- Planos: avulso, Essencial, Comércio e Empresa, sob consulta; preços e prazos ainda não definidos.
+- Contato: canais fictícios identificados e formulário que prepara um resumo local. Não há envio nem persistência de dados nesta versão.
+- Configure canais reais em `lib/support.ts`: WhatsApp com código do país e DDD, e e-mail profissional. Links de WhatsApp têm mensagem pré-preenchida e só aparecem quando configurados.
+- Notas: conteúdo sobre backup e diagnóstico de impressoras, além do caderno acadêmico existente.
+- SEO local e navegação comercial; notas e laboratório disponíveis pelo rodapé.
+
+Consulte [IMPLEMENTACAO_SUPORTE_TI.md](IMPLEMENTACAO_SUPORTE_TI.md) para as próximas etapas. Esta atualização não publica o site automaticamente.
